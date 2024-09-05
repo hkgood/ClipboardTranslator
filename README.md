@@ -1,7 +1,7 @@
 <div align="center">
 </br>
   
-<img src="./ClipboardTranslator/Assets.xcassets/AppIcon.appiconset/cliptrans512.png" width="128px">
+<img src="./ClipboardTranslator/Assets.xcassets/AppIcon.appiconset/Cliptrans-1.png" width="128px">
 </br>
 
 
