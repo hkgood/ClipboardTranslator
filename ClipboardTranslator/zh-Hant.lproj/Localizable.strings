@@ -1,189 +1,59 @@
-// 简体中文 (zh-Hans.lproj/Localizable.strings)
-"translate_button" = "翻译";
-"settings_button" = "设置";
-"target_language" = "目标语言";
-"google_ai_api_settings" = "Google AI API 设置";
-"google_ai_api_key" = "Google AI API 密钥";
-"google_tts_api_settings" = "Google Text-to-Speech API 设置";
-"google_tts_api_key" = "Google TTS API 密钥";
-"save_button" = "保存";
-"cancel_button" = "取消";
-"alert_title" = "提示";
-"settings_saved" = "设置已保存";
-"ok_button" = "确定";
-"api_key_empty" = "API Key 不能为空";
-"enter_text_to_translate" = "请输入要翻译的文本";
-"translation_failed" = "翻译失败";
-"speech_synthesis_failed" = "语音合成失败";
-"audio_playback_failed" = "音频播放失败";
+// 繁體中文 (zh-Hant.lproj/Localizable.strings)
 
-// 繁体中文 (zh-Hant.lproj/Localizable.strings)
+// MainWindow
 "translate_button" = "翻譯";
 "settings_button" = "設定";
 "target_language" = "目標語言";
+
+// Language names
+"English" = "英文";
+"Simplified_Chinese" = "簡體中文";
+"Traditional_Chinese" = "繁體中文";
+"Japanese" = "日文";
+"Korean" = "韓文";
+"German" = "德文";
+"French" = "法文";
+"Italian" = "義大利文";
+"Spanish" = "西班牙文";
+"Portuguese" = "葡萄牙文";
+"Russian" = "俄文";
+"Latin" = "拉丁文";
+"Mongolian" = "蒙古文";
+"Tibetan" = "藏文";
+"Uyghur" = "維吾爾文";
+
+// SettingsView
 "google_ai_api_settings" = "Google AI API 設定";
 "google_ai_api_key" = "Google AI API 金鑰";
-"google_tts_api_settings" = "Google Text-to-Speech API 設定";
+"google_tts_api_settings" = "Google 文字轉語音 API 設定";
 "google_tts_api_key" = "Google TTS API 金鑰";
 "save_button" = "儲存";
 "cancel_button" = "取消";
 "alert_title" = "提示";
 "settings_saved" = "設定已儲存";
-"ok_button" = "確定";
-"api_key_empty" = "API 金鑰不能為空";
+"ok_button" = "確認";
+"api_key_empty" = "API 金鑰不可為空";
+
+// TranslationManager
 "enter_text_to_translate" = "請輸入要翻譯的文字";
 "translation_failed" = "翻譯失敗";
 "speech_synthesis_failed" = "語音合成失敗";
 "audio_playback_failed" = "音訊播放失敗";
 
-// 英文 (en.lproj/Localizable.strings)
-"translate_button" = "Translate";
-"settings_button" = "Settings";
-"target_language" = "Target Language";
-"google_ai_api_settings" = "Google AI API Settings";
-"google_ai_api_key" = "Google AI API Key";
-"google_tts_api_settings" = "Google Text-to-Speech API Settings";
-"google_tts_api_key" = "Google TTS API Key";
-"save_button" = "Save";
-"cancel_button" = "Cancel";
-"alert_title" = "Alert";
-"settings_saved" = "Settings saved";
-"ok_button" = "OK";
-"api_key_empty" = "API Key cannot be empty";
-"enter_text_to_translate" = "Please enter text to translate";
-"translation_failed" = "Translation failed";
-"speech_synthesis_failed" = "Speech synthesis failed";
-"audio_playback_failed" = "Audio playback failed";
-
-// 法文 (fr.lproj/Localizable.strings)
-"translate_button" = "Traduire";
-"settings_button" = "Paramètres";
-"target_language" = "Langue cible";
-"google_ai_api_settings" = "Paramètres de l'API Google AI";
-"google_ai_api_key" = "Clé API Google AI";
-"google_tts_api_settings" = "Paramètres de l'API Google Text-to-Speech";
-"google_tts_api_key" = "Clé API Google TTS";
-"save_button" = "Enregistrer";
-"cancel_button" = "Annuler";
-"alert_title" = "Alerte";
-"settings_saved" = "Paramètres enregistrés";
-"ok_button" = "OK";
-"api_key_empty" = "La clé API ne peut pas être vide";
-"enter_text_to_translate" = "Veuillez entrer le texte à traduire";
-"translation_failed" = "La traduction a échoué";
-"speech_synthesis_failed" = "La synthèse vocale a échoué";
-"audio_playback_failed" = "La lecture audio a échoué";
-
-// 德文 (de.lproj/Localizable.strings)
-"translate_button" = "Übersetzen";
-"settings_button" = "Einstellungen";
-"target_language" = "Zielsprache";
-"google_ai_api_settings" = "Google AI API-Einstellungen";
-"google_ai_api_key" = "Google AI API-Schlüssel";
-"google_tts_api_settings" = "Google Text-to-Speech API-Einstellungen";
-"google_tts_api_key" = "Google TTS API-Schlüssel";
-"save_button" = "Speichern";
-"cancel_button" = "Abbrechen";
-"alert_title" = "Hinweis";
-"settings_saved" = "Einstellungen gespeichert";
-"ok_button" = "OK";
-"api_key_empty" = "API-Schlüssel darf nicht leer sein";
-"enter_text_to_translate" = "Bitte geben Sie den zu übersetzenden Text ein";
-"translation_failed" = "Übersetzung fehlgeschlagen";
-"speech_synthesis_failed" = "Sprachsynthese fehlgeschlagen";
-"audio_playback_failed" = "Audiowiedergabe fehlgeschlagen";
-
-// 日文 (ja.lproj/Localizable.strings)
-"translate_button" = "翻訳";
-"settings_button" = "設定";
-"target_language" = "対象言語";
-"google_ai_api_settings" = "Google AI API設定";
-"google_ai_api_key" = "Google AI APIキー";
-"google_tts_api_settings" = "Google Text-to-Speech API設定";
-"google_tts_api_key" = "Google TTS APIキー";
-"save_button" = "保存";
-"cancel_button" = "キャンセル";
-"alert_title" = "通知";
-"settings_saved" = "設定が保存されました";
-"ok_button" = "OK";
-"api_key_empty" = "APIキーを入力してください";
-"enter_text_to_translate" = "翻訳するテキストを入力してください";
-"translation_failed" = "翻訳に失敗しました";
-"speech_synthesis_failed" = "音声合成に失敗しました";
-"audio_playback_failed" = "音声再生に失敗しました";
-
-// 韩文 (ko.lproj/Localizable.strings)
-"translate_button" = "번역";
-"settings_button" = "설정";
-"target_language" = "대상 언어";
-"google_ai_api_settings" = "Google AI API 설정";
-"google_ai_api_key" = "Google AI API 키";
-"google_tts_api_settings" = "Google Text-to-Speech API 설정";
-"google_tts_api_key" = "Google TTS API 키";
-"save_button" = "저장";
-"cancel_button" = "취소";
-"alert_title" = "알림";
-"settings_saved" = "설정이 저장되었습니다";
-"ok_button" = "확인";
-"api_key_empty" = "API 키를 입력해주세요";
-"enter_text_to_translate" = "번역할 텍스트를 입력해주세요";
-"translation_failed" = "번역에 실패했습니다";
-"speech_synthesis_failed" = "음성 합성에 실패했습니다";
-"audio_playback_failed" = "오디오 재생에 실패했습니다";
-
-// 西班牙文 (es.lproj/Localizable.strings)
-"translate_button" = "Traducir";
-"settings_button" = "Ajustes";
-"target_language" = "Idioma de destino";
-"google_ai_api_settings" = "Configuración de la API de Google AI";
-"google_ai_api_key" = "Clave de API de Google AI";
-"google_tts_api_settings" = "Configuración de la API de Google Text-to-Speech";
-"google_tts_api_key" = "Clave de API de Google TTS";
-"save_button" = "Guardar";
-"cancel_button" = "Cancelar";
-"alert_title" = "Aviso";
-"settings_saved" = "Configuración guardada";
-"ok_button" = "Aceptar";
-"api_key_empty" = "La clave API no puede estar vacía";
-"enter_text_to_translate" = "Por favor, introduce el texto a traducir";
-"translation_failed" = "La traducción ha fallado";
-"speech_synthesis_failed" = "La síntesis de voz ha fallado";
-"audio_playback_failed" = "La reproducción de audio ha fallado";
-
-// 葡萄牙文 (pt.lproj/Localizable.strings)
-"translate_button" = "Traduzir";
-"settings_button" = "Configurações";
-"target_language" = "Idioma de destino";
-"google_ai_api_settings" = "Configurações da API do Google AI";
-"google_ai_api_key" = "Chave da API do Google AI";
-"google_tts_api_settings" = "Configurações da API do Google Text-to-Speech";
-"google_tts_api_key" = "Chave da API do Google TTS";
-"save_button" = "Salvar";
-"cancel_button" = "Cancelar";
-"alert_title" = "Aviso";
-"settings_saved" = "Configurações salvas";
-"ok_button" = "OK";
-"api_key_empty" = "A chave da API não pode estar vazia";
-"enter_text_to_translate" = "Por favor, insira o texto para traduzir";
-"translation_failed" = "A tradução falhou";
-"speech_synthesis_failed" = "A síntese de fala falhou";
-"audio_playback_failed" = "A reprodução de áudio falhou";
-
-// 俄文 (ru.lproj/Localizable.strings)
-"translate_button" = "Перевести";
-"settings_button" = "Настройки";
-"target_language" = "Язык перевода";
-"google_ai_api_settings" = "Настройки API Google AI";
-"google_ai_api_key" = "Ключ API Google AI";
-"google_tts_api_settings" = "Настройки API Google Text-to-Speech";
-"google_tts_api_key" = "Ключ API Google TTS";
-"save_button" = "Сохранить";
-"cancel_button" = "Отмена";
-"alert_title" = "Уведомление";
-"settings_saved" = "Настройки сохранены";
-"ok_button" = "ОК";
-"api_key_empty" = "Ключ API не может быть пустым";
-"enter_text_to_translate" = "Пожалуйста, введите текст для перевода";
-"translation_failed" = "Ошибка перевода";
-"speech_synthesis_failed" = "Ошибка синтеза речи";
-"audio_playback_failed" = "Ошибка воспроизведения аудио";
+// Additional common strings
+"error" = "錯誤";
+"warning" = "警告";
+"success" = "成功";
+"loading" = "正在載入...";
+"cancel" = "取消";
+"done" = "完成";
+"edit" = "編輯";
+"delete" = "刪除";
+"share" = "分享";
+"copy" = "複製";
+"paste" = "貼上";
+"close" = "關閉";
+"back" = "返回";
+"next" = "下一步";
+"finish" = "完成";
+"retry" = "重試";

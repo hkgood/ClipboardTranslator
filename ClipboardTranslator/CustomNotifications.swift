@@ -1,8 +1,5 @@
-//
-//  CustomNotifications.swift
-//  ClipboardTranslator
-//
-//  Created by Rocky on 9/9/24.
-//
-
 import Foundation
+
+extension Notification.Name {
+    static let updateTranslationSettings = Notification.Name("updateTranslationSettings")
+}

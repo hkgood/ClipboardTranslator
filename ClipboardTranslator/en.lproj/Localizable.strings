@@ -1,7 +1,59 @@
-/* 
-  Localizable.strings
-  ClipboardTranslator
+// English (en.lproj/Localizable.strings)
 
-  Created by Rocky on 9/9/24.
-  
-*/
+// MainWindow
+"translate_button" = "Translate";
+"settings_button" = "Settings";
+"target_language" = "Target Language";
+
+// Language names
+"English" = "English";
+"Simplified_Chinese" = "Simplified Chinese";
+"Traditional_Chinese" = "Traditional Chinese";
+"Japanese" = "Japanese";
+"Korean" = "Korean";
+"German" = "German";
+"French" = "French";
+"Italian" = "Italian";
+"Spanish" = "Spanish";
+"Portuguese" = "Portuguese";
+"Russian" = "Russian";
+"Latin" = "Latin";
+"Mongolian" = "Mongolian";
+"Tibetan" = "Tibetan";
+"Uyghur" = "Uyghur";
+
+// SettingsView
+"google_ai_api_settings" = "Google AI API Settings";
+"google_ai_api_key" = "Google AI API Key";
+"google_tts_api_settings" = "Google Text-to-Speech API Settings";
+"google_tts_api_key" = "Google TTS API Key";
+"save_button" = "Save";
+"cancel_button" = "Cancel";
+"alert_title" = "Alert";
+"settings_saved" = "Settings saved";
+"ok_button" = "OK";
+"api_key_empty" = "API Key cannot be empty";
+
+// TranslationManager
+"enter_text_to_translate" = "Please enter text to translate";
+"translation_failed" = "Translation failed";
+"speech_synthesis_failed" = "Speech synthesis failed";
+"audio_playback_failed" = "Audio playback failed";
+
+// Additional common strings
+"error" = "Error";
+"warning" = "Warning";
+"success" = "Success";
+"loading" = "Loading...";
+"cancel" = "Cancel";
+"done" = "Done";
+"edit" = "Edit";
+"delete" = "Delete";
+"share" = "Share";
+"copy" = "Copy";
+"paste" = "Paste";
+"close" = "Close";
+"back" = "Back";
+"next" = "Next";
+"finish" = "Finish";
+"retry" = "Retry";

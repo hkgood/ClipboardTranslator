@@ -9,24 +9,24 @@ struct SettingsView: View {
     
     var body: some View {
         Form {
-            Section(header: Text("Google AI API 设置")) {
-                TextField("Google AI API 密钥", text: $apiKey)
+            Section(header: Text(NSLocalizedString("google_ai_api_settings", comment: "Google AI API settings section header"))) {
+                TextField(NSLocalizedString("google_ai_api_key", comment: "Google AI API key label"), text: $apiKey)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
             }
             
-            Section(header: Text("Google Text-to-Speech API 设置")) {
-                TextField("Google TTS API 密钥", text: $ttsApiKey)
+            Section(header: Text(NSLocalizedString("google_tts_api_settings", comment: "Google TTS API settings section header"))) {
+                TextField(NSLocalizedString("google_tts_api_key", comment: "Google TTS API key label"), text: $ttsApiKey)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
             }
             
             HStack {
-                Button("保存") {
+                Button(NSLocalizedString("save_button", comment: "Save button text")) {
                     saveSettings()
                 }
                 .foregroundColor(.blue)
                 .controlSize(.large)
                 
-                Button("取消") {
+                Button(NSLocalizedString("cancel_button", comment: "Cancel button text")) {
                     presentationMode.wrappedValue.dismiss()
                 }
                 .foregroundColor(.red)
@@ -36,11 +36,15 @@ struct SettingsView: View {
         .padding(20)
         .frame(width: 400, height: 200)
         .alert(isPresented: $showAlert) {
-            Alert(title: Text("提示"), message: Text(alertMessage), dismissButton: .default(Text("确定")) {
-                if alertMessage == "设置已保存" {
-                    presentationMode.wrappedValue.dismiss()
+            Alert(
+                title: Text(NSLocalizedString("alert_title", comment: "Alert title")),
+                message: Text(alertMessage),
+                dismissButton: .default(Text(NSLocalizedString("ok_button", comment: "OK button text"))) {
+                    if alertMessage == NSLocalizedString("settings_saved", comment: "Settings saved message") {
+                        presentationMode.wrappedValue.dismiss()
+                    }
                 }
-            })
+            )
         }
     }
     
@@ -48,12 +52,12 @@ struct SettingsView: View {
         if !apiKey.isEmpty && !ttsApiKey.isEmpty {
             UserDefaults.standard.set(apiKey, forKey: "GoogleAPIKey")
             UserDefaults.standard.set(ttsApiKey, forKey: "GoogleTTSAPIKey")
-            alertMessage = "设置已保存"
+            alertMessage = NSLocalizedString("settings_saved", comment: "Settings saved message")
             showAlert = true
             
             NotificationCenter.default.post(name: .updateTranslationSettings, object: nil)
         } else {
-            alertMessage = "API Key 不能为空"
+            alertMessage = NSLocalizedString("api_key_empty", comment: "API key empty error message")
             showAlert = true
         }
     }

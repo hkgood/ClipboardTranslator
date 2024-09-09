@@ -33,7 +33,7 @@ class TranslationManager: ObservableObject {
     
     func translate(_ text: String, to language: String, force: Bool = false) {
         guard !text.isEmpty else {
-            self.error = "请输入要翻译的文本"
+            self.error = NSLocalizedString("enter_text_to_translate", comment: "Enter text to translate message")
             return
         }
         
@@ -44,15 +44,24 @@ class TranslationManager: ObservableObject {
         isTranslating = true
         error = nil
         
+        let languageCode = getLanguageCode(for: language)
+        print("Translating to language: \(language), code: \(languageCode)")
+        
         let url = URL(string: "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=\(apiKey)")!
         
         let requestBody: [String: Any] = [
             "contents": [
                 [
                     "parts": [
-                        ["text": "将以下文本翻译成\(language)，无论原文是什么语言：\n\n\(text)"]
+                        ["text": "Translate the following text to \(languageCode):\n\n\(text)"]
                     ]
                 ]
+            ],
+            "generationConfig": [
+                "temperature": 0.1,
+                "topP": 1,
+                "topK": 1,
+                "maxOutputTokens": 2048
             ],
             "safetySettings": [
                 [
@@ -86,12 +95,14 @@ class TranslationManager: ObservableObject {
             .sink { [weak self] completion in
                 self?.isTranslating = false
                 if case .failure(let error) = completion {
-                    self?.error = "翻译失败: \(error.localizedDescription)"
+                    self?.error = NSLocalizedString("translation_failed", comment: "Translation failed message") + ": \(error.localizedDescription)"
+                    print("Translation error: \(error)")
                 }
             } receiveValue: { [weak self] response in
-                self?.translatedText = response.candidates.first?.content.parts.first?.text ?? "翻译失败"
+                self?.translatedText = response.candidates.first?.content.parts.first?.text ?? NSLocalizedString("translation_failed", comment: "Translation failed message")
                 self?.lastTranslatedText = text
                 self?.targetLanguage = language
+                print("Translation successful. Response: \(response)")
             }
             .store(in: &cancellables)
     }
@@ -124,12 +135,14 @@ class TranslationManager: ObservableObject {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 if case .failure(let error) = completion {
-                    self?.error = "语音合成失败: \(error.localizedDescription)"
+                    self?.error = NSLocalizedString("speech_synthesis_failed", comment: "Speech synthesis failed message") + ": \(error.localizedDescription)"
+                    print("TTS error: \(error)")
                 }
             } receiveValue: { [weak self] response in
                 if let audioData = Data(base64Encoded: response.audioContent) {
                     self?.playAudio(data: audioData)
                     self?.lastSpokenText = self?.translatedText ?? ""
+                    print("TTS successful")
                 }
             }
             .store(in: &cancellables)
@@ -143,7 +156,8 @@ class TranslationManager: ObservableObject {
                 audioPlayer = try AVAudioPlayer(data: data)
                 audioPlayer?.play()
             } catch {
-                self.error = "音频播放失败: \(error.localizedDescription)"
+                self.error = NSLocalizedString("audio_playback_failed", comment: "Audio playback failed message") + ": \(error.localizedDescription)"
+                print("Audio playback error: \(error)")
             }
         } else if let player = audioPlayer {
             player.play()
@@ -160,23 +174,25 @@ class TranslationManager: ObservableObject {
     }
     
     private func getLanguageCode(for language: String) -> String {
-        switch language {
-        case "英语": return "en-US"
-        case "简体中文": return "zh-CN"
-        case "繁体中文": return "zh-TW"
-        case "日语": return "ja-JP"
-        case "韩语": return "ko-KR"
-        case "德语": return "de-DE"
-        case "法语": return "fr-FR"
-        case "意大利语": return "it-IT"
-        case "西班牙语": return "es-ES"
-        case "葡萄牙语": return "pt-PT"
-        case "俄语": return "ru-RU"
-        case "拉丁语": return "la"
-        case "蒙古语": return "mn-MN"
-        case "藏文": return "bo-CN"
-        case "维吾尔语": return "ug-CN"
-        default: return "en-US"
+        switch language.lowercased() {
+        case NSLocalizedString("english", comment: "English language name").lowercased(): return "en-US"
+        case NSLocalizedString("simplified_chinese", comment: "Simplified Chinese language name").lowercased(): return "zh-CN"
+        case NSLocalizedString("traditional_chinese", comment: "Traditional Chinese language name").lowercased(): return "zh-TW"
+        case NSLocalizedString("japanese", comment: "Japanese language name").lowercased(): return "ja-JP"
+        case NSLocalizedString("korean", comment: "Korean language name").lowercased(): return "ko-KR"
+        case NSLocalizedString("german", comment: "German language name").lowercased(): return "de-DE"
+        case NSLocalizedString("french", comment: "French language name").lowercased(): return "fr-FR"
+        case NSLocalizedString("italian", comment: "Italian language name").lowercased(): return "it-IT"
+        case NSLocalizedString("spanish", comment: "Spanish language name").lowercased(): return "es-ES"
+        case NSLocalizedString("portuguese", comment: "Portuguese language name").lowercased(): return "pt-PT"
+        case NSLocalizedString("russian", comment: "Russian language name").lowercased(): return "ru-RU"
+        case NSLocalizedString("latin", comment: "Latin language name").lowercased(): return "la"
+        case NSLocalizedString("mongolian", comment: "Mongolian language name").lowercased(): return "mn-MN"
+        case NSLocalizedString("tibetan", comment: "Tibetan language name").lowercased(): return "bo-CN"
+        case NSLocalizedString("uyghur", comment: "Uyghur language name").lowercased(): return "ug-CN"
+        default:
+            print("Unknown language: \(language), defaulting to en-US")
+            return "en-US"
         }
     }
 }

@@ -5,15 +5,31 @@ struct MainWindow: View {
     @StateObject private var clipboardManager = ClipboardManager()
     @StateObject private var translationManager: TranslationManager
     @State private var showSettings = false
-    @State private var selectedLanguage = "英语"
+    @State private var selectedLanguage = NSLocalizedString("English", comment: "English language name")
     @Environment(\.colorScheme) var colorScheme
     
-    let languages = ["英语", "简体中文", "繁体中文", "日语", "韩语", "德语", "法语", "意大利语", "西班牙语", "葡萄牙语", "俄语", "拉丁语", "蒙古语", "藏文", "维吾尔语"]
+    let languages = [
+        NSLocalizedString("English", comment: "English language name"),
+        NSLocalizedString("Simplified_Chinese", comment: "Simplified Chinese language name"),
+        NSLocalizedString("Traditional_Chinese", comment: "Traditional Chinese language name"),
+        NSLocalizedString("Japanese", comment: "Japanese language name"),
+        NSLocalizedString("Korean", comment: "Korean language name"),
+        NSLocalizedString("German", comment: "German language name"),
+        NSLocalizedString("French", comment: "French language name"),
+        NSLocalizedString("Italian", comment: "Italian language name"),
+        NSLocalizedString("Spanish", comment: "Spanish language name"),
+        NSLocalizedString("Portuguese", comment: "Portuguese language name"),
+        NSLocalizedString("Russian", comment: "Russian language name"),
+        NSLocalizedString("Latin", comment: "Latin language name"),
+        NSLocalizedString("Mongolian", comment: "Mongolian language name"),
+        NSLocalizedString("Tibetan", comment: "Tibetan language name"),
+        NSLocalizedString("Uyghur", comment: "Uyghur language name")
+    ]
     
     init() {
         let apiKey = UserDefaults.standard.string(forKey: "GoogleAPIKey") ?? ""
         let ttsApiKey = UserDefaults.standard.string(forKey: "GoogleTTSAPIKey") ?? ""
-        _translationManager = StateObject(wrappedValue: TranslationManager(apiKey: apiKey, ttsApiKey: ttsApiKey, targetLanguage: "英语"))
+        _translationManager = StateObject(wrappedValue: TranslationManager(apiKey: apiKey, ttsApiKey: ttsApiKey, targetLanguage: NSLocalizedString("English", comment: "English language name")))
     }
     
     var body: some View {
@@ -35,7 +51,7 @@ struct MainWindow: View {
                             .frame(minWidth: 100, maxWidth: .infinity, minHeight: 36)
                             .background(translationManager.isTranslating ? Color.gray : Color.accentColor)
                     } else {
-                        Text("翻译")
+                        Text(NSLocalizedString("translate_button", comment: "Translate button text"))
                             .frame(minWidth: 100, maxWidth: .infinity, minHeight: 36)
                             .background(translationManager.isTranslating ? Color.gray : Color.accentColor)
                     }
@@ -66,12 +82,12 @@ struct MainWindow: View {
                     )
                 
                 HStack {
-                    Picker("目标语言", selection: $selectedLanguage) {
+                    Picker(NSLocalizedString("target_language", comment: "Target language picker label"), selection: $selectedLanguage) {
                         ForEach(languages, id: \.self) {
                             Text($0)
                         }
                     }
-                    .frame(width: 150)
+                    .frame(width: 200)
                     .onChange(of: selectedLanguage) { newValue in
                         translationManager.updateSettings(
                             apiKey: translationManager.getApiKey(),
@@ -88,7 +104,7 @@ struct MainWindow: View {
                     
                     Spacer()
                     
-                    Button("设置") {
+                    Button(NSLocalizedString("settings_button", comment: "Settings button text")) {
                         showSettings.toggle()
                     }
                     .frame(height: 18)
